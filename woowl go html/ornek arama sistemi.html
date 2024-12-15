@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arama Sonuçları</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .results {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 800px;
+        }
+        .result-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arama Sonuçları</h1>
+    <div class="results" id="results"></div>
+
+    <script>
+        function getQueryParameter(name) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function displayResults(query) {
+            var resultsContainer = document.getElementById('results');
+            var results = [
+                'Örnek Sonuç 1: ' + query,
+                'Örnek Sonuç 2: ' + query,
+                'Örnek Sonuç 3: ' + query
+            ]; // Buraya gerçek sonuçları ekleyebilirsiniz
+
+            results.forEach(function(result) {
+                var resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                resultItem.textContent = result;
+                resultsContainer.appendChild(resultItem);
+            });
+        }
+
+        window.onload = function() {
+            var query = getQueryParameter('query');
+            if (query) {
+                displayResults(decodeURIComponent(query));
+            }
+        };
+    </script>
+</body>
+</html>

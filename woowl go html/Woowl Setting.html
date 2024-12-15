@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woowl Settings</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Yatay çizgi stili (class="h") */
+        .h {
+            border-top: 2px solid black;
+            width: 300px; /* Yatay çizgiyi 300px genişlikte yapıyoruz */
+            margin-right: 0;
+            margin-top: 20px;
+        }
+
+        /* Dikey çizgi stili (class="v") */
+        .v {
+            border-left: 2px solid black;
+            height: 100vh; /* Dikey çizginin ekranın tamamına uzanmasını sağlar */
+            margin-left: 10px;
+        }
+
+        /* Çizgileri yan yana yerleştirmek için Flexbox */
+        .line-container {
+            display: flex;
+            align-items: flex-start; /* Çizgilerin üst kısmını hizalar */
+        }
+
+        /* Diğer stil kuralları */
+        .setting-icon {
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+            position: relative;
+            top: 5px;
+        }
+        .home-icon {
+            width: 40px;
+            height: 40px;
+        }
+        .icon-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .icon-container img {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Arama çubuğu ve ikon */
+        .search-container {
+            display: flex;
+            align-items: flex-start;
+            margin-left: 100px;
+            margin-top: 15px;
+        }
+        .search-bar {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            width: 150px;
+            margin-right: 0;
+            vertical-align: top;
+        }
+        .search-icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-left: 10px;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body>
+
+<div class="icon-container">
+    <img src="img/setting/setting logo.png" alt="setting-icon" class="setting-icon">
+    <a href="Woowl New Tab.html" target="_blank" id="homeIcon">
+        <img src="img/setting/home logo.png" alt="home-icon" class="home-icon">
+    </a>
+</div>
+
+<!-- Arama çubuğu ve ikon -->
+<div class="search-container">
+    <input type="text" class="search-bar" placeholder="Search...">
+    <img src="img/search/search_icon.png" alt="search-icon" class="search-icon" id="searchIcon">
+</div>
+
+<!-- Yatay ve dikey çizgilerin olduğu konteyner -->
+<div class="line-container">
+    <div class="h"></div> <!-- Yatay çizgi -->
+    <div class="v"></div> <!-- Dikey çizgi -->
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    // Home ikonu tıklandığında bir uyarı gösterelim
+    document.getElementById('homeIcon').addEventListener('click', function(event) {
+        event.preventDefault();
+        alert("Home icon clicked! Redirecting...");
+        window.open("Woowl New Tab.html", "_blank");
+    });
+
+    // Search ikonu tıklandığında bir yönlendirme yapalım
+    document.getElementById('searchIcon').addEventListener('click', function() {
+        var query = document.querySelector('.search-bar').value;
+        window.location.href = 'Woowl Search.html?q=' + encodeURIComponent(query);
+    });
+</script>
+
+</body>
+</html>

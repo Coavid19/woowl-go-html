@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .input-group {
+            display: flex;
+            justify-content: center;
+        }
+        .input-group .form-control {
+            width: 400px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin-top: -100px;
+        }
+        h1 {
+            font-size: 72px;
+            margin-bottom: 40px;
+        }
+        .settings-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+    <script>
+        function changeTitle(event) {
+    event.preventDefault();
+    const input = document.querySelector('.form-control').value;
+    document.title = input + ' - Search Results';
+                                    }
+    </script>
+</head>
+<body>
+
+    <div class="container mt-3">
+
+        <a href="Woowl Setting.html">
+            <img src="img/setting/setting logo.png" alt="setting" width="30" height="30" class="settings-icon">
+        </a>
+
+        <script>
+            function performSearch() {
+                var query = document.getElementById('search-input').value;
+                if (query) {
+                    var searchURL = 'Woowl Search.html?query=' + encodeURIComponent(query);
+                    window.open(searchURL, '_blank'); // Yeni sekmede aç
+                }
+            }
+        </script>
+
+        <h1 style="text-align: center; color: lightsteelblue;">Woowl</h1>
+
+        <form action="Woowl Search.html" method="get">
+            <div class="input-group mt-3">
+                <input type="text" class="form-control" name="query" placeholder="Search web" aria-describedby="username-addon">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </span>
+            </div>
+        </form>        
+        
+    </div>
+</body>
+</html>
